@@ -64,10 +64,14 @@ public class GrupoDao implements IGrupoDao {
 
 	@Override
 	public List<Grupo> listaGrupo(String letra) throws SQLException, ClassNotFoundException {
-		List<Grupo> grupo = new ArrayList<Grupo>();
+		List<Grupo> grupoA = new ArrayList<Grupo>();
+		List<Grupo> grupoB = new ArrayList<Grupo>();
+		List<Grupo> grupoC = new ArrayList<Grupo>();
+		List<Grupo> grupoD = new ArrayList<Grupo>();
 		
 		Connection c = gDao.getConnection();
-		String sql = "SELECT * FROM grupos WHERE grupo = ? ";
+		StringBuffer sql = new StringBuffer();
+		sql.append("SELECT * FROM grupos WHERE grupo = '?' ");
 		
 		PreparedStatement ps = c.prepareStatement(sql.toString());
 		ps.setString(1, letra);
@@ -76,22 +80,24 @@ public class GrupoDao implements IGrupoDao {
 		while (rs.next()) {
 			Time t = new Time();
 			Grupo g = new Grupo();
-			
-			t.setNomeTime(rs.getString("nome"));
+			t.setCodigo_T(rs.getInt("codigoTimeG"));
 			g.setTime(t);
+			g.setCodigo(rs.getInt("codigoGrupo"));
 			
-			t.setCidade(rs.getString("cidade"));
-			t.setEstadio(rs.getString("estadio"));
 			g.setGrupo(rs.getString("grupo"));
 			
-			grupo.add(g);
+			
+			grupoA.add(g);
+			
 		}
 		
 		rs.close();
 		ps.close();
 		c.close();
 		
-		return grupo;
+
+		return grupoA;
+
 	}
 
 }

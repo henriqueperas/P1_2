@@ -23,18 +23,18 @@ public class PartidasDao implements IPartidasDao {
 
 	@Override
 	public String geraPartida() throws SQLException, ClassNotFoundException {
-		Connection con = gDao.getConnection();
+		Connection c = gDao.getConnection();
 
 		String sql = "CALL sp_cria_partidas (?)";
-		CallableStatement cs = con.prepareCall(sql);
+		CallableStatement cs = c.prepareCall(sql);
 		cs.registerOutParameter(1, Types.VARCHAR);
 		cs.execute();
 
-		String saida = cs.getString(1);
+		String gera = cs.getString(1);
 
 		cs.close();
-		con.close();
-		return saida;
+		c.close();
+		return gera;
 	}
 
 	@Override
@@ -53,15 +53,15 @@ public class PartidasDao implements IPartidasDao {
 			Time time1 = new Time();
 			Time time2 = new Time();
 			j.setCodigoJogo(rs.getInt("codigoJogo"));
-			time1.setCodigo_T(rs.getInt("codTA"));
+			time1.setCodigo_T(rs.getInt("codigoTime1"));
 			
-			time2.setCodigo_T(rs.getInt("codTB"));
+			time2.setCodigo_T(rs.getInt("codigoTime2"));
 			
 			j.setTime1(time1);
 			j.setTime2(time2);
-			j.setGolsTime1(rs.getInt("golsTimeA"));
-			j.setGolsTime2(rs.getInt("golsTimeB"));
-			j.setDataJogo(rs.getString("datas"));
+			j.setGolsTime1(rs.getInt("golsTime1"));
+			j.setGolsTime2(rs.getInt("golsTime2"));
+			j.setDataJogo(rs.getString("data_jogo"));
 
 			jogos.add(j);
 		}

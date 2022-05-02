@@ -29,14 +29,14 @@ public class PartidaController {
 	public ModelAndView grupos(ModelMap model, 
 			@RequestParam Map<String, String> allParam) {
 		String erro = "";
-		String saida = "";
+		String gera = "";
 		try {
-			saida = pDao.geraPartida();
+			gera = pDao.geraPartida();
 		}catch(SQLException | ClassNotFoundException e) {
 			erro = e.getMessage();
 		} finally {
 			model.addAttribute("erro", erro);
-			model.addAttribute("saida", saida);
+			model.addAttribute("saida", gera);
 		}
 		return new ModelAndView("rodada");
 	}

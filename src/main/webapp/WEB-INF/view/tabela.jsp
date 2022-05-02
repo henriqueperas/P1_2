@@ -29,6 +29,8 @@
 	</div>
 	<br />
 	<div class = "container grid">
+	<br>
+	<br>
 		<c:if test="${not empty grupoA }">
 			<table class=table_home>
 				<thead>
@@ -39,7 +41,7 @@
 				<tbody>	
 				<c:forEach items="${grupoA}" var="g">
 					<tr>
-						<td><c:out value="${g.time.nome }"></c:out></td>
+						<td><c:out value="${g.time.codigo_T}"></c:out></td>
 					</tr>
 				</c:forEach>
 				</tbody>
@@ -55,14 +57,19 @@
 				<tbody>	
 				<c:forEach items="${grupoB}" var="g">
 					<tr>
-						<td><c:out value="${g.time.nome }"></c:out></td>
+						<td><c:out value="${g.time.codigo_T }"></c:out></td>
 					</tr>
 				</c:forEach>
 				</tbody>
 			</table>
 		</c:if>
 		</div>
+		<br>
+		<br>
+		<br>
 		<div class="container grid">
+		<br>
+		<br>
 		<c:if test="${not empty grupoC }">
 			<table class=table_home>
 				<thead>
@@ -73,7 +80,7 @@
 				<tbody>	
 				<c:forEach items="${grupoC}" var="g">
 					<tr>
-						<td><c:out value="${g.time.nome }"></c:out></td>
+						<td><c:out value="${g.time.codigo_T }"></c:out></td>
 					</tr>
 				</c:forEach>
 				</tbody>
@@ -89,7 +96,7 @@
 				<tbody>	
 				<c:forEach items="${grupoD}" var="g">
 					<tr>
-						<td><c:out value="${g.time.nome }"></c:out></td>
+						<td><c:out value="${g.time.codigo_T }"></c:out></td>
 					</tr>
 				</c:forEach>
 				</tbody>
