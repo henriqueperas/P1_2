@@ -191,7 +191,7 @@
 				<tbody>	
 				<c:forEach items="${todos}" var="t">
 					<tr>
-						<td><c:out value="${s.nome }"></c:out></td>
+						<td align="center"><c:out value="${s.nome }"></c:out></td>
 						<td align="center"><c:out value="${s.partidas }"></c:out></td>
 						<td align="center"><c:out value="${s.vitorias }"></c:out></td>
 						<td align="center"><c:out value="${s.empates }"></c:out></td>

@@ -36,7 +36,7 @@ public class FinalController {
 		List<GrupoPontos> grupoB = new ArrayList<GrupoPontos>();
 		List<GrupoPontos> grupoC = new ArrayList<GrupoPontos>();
 		List<GrupoPontos> grupoD = new ArrayList<GrupoPontos>();
-		List<FinalRebaixamento> todos = new ArrayList<FinalRebaixamento>();
+		List<GrupoPontos> todos = new ArrayList<GrupoPontos>();
 		String erro = "";
 		String saida = "";
 		try {
@@ -47,7 +47,7 @@ public class FinalController {
 				grupoD = sDao.listaGrupoEPontos("D");
 			}
 			if(botao.contains("todos")) {
-				todos = sDao.listaQuartasFinal();
+				todos = sDao.listaCampeonato();
 			}
 		}catch(SQLException | ClassNotFoundException e) {
 			erro = e.getMessage();
