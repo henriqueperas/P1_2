@@ -189,7 +189,7 @@
 					</tr>
 				</thead>
 				<tbody>	
-				<c:forEach items="${todos}" var="s">
+				<c:forEach items="${todos}" var="t">
 					<tr>
 						<td><c:out value="${s.nome }"></c:out></td>
 						<td align="center"><c:out value="${s.partidas }"></c:out></td>
