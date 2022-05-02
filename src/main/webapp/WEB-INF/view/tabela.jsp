@@ -41,7 +41,7 @@
 				<tbody>	
 				<c:forEach items="${grupoA}" var="g">
 					<tr>
-						<td><c:out value="${g.time.codigo_T}"></c:out></td>
+						<td><c:out value="${g.time.codigo_T }"></c:out></td>
 					</tr>
 				</c:forEach>
 				</tbody>
@@ -64,7 +64,6 @@
 			</table>
 		</c:if>
 		</div>
-		<br>
 		<br>
 		<br>
 		<div class="container grid">

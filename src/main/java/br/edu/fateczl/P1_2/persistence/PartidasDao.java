@@ -65,6 +65,9 @@ public class PartidasDao implements IPartidasDao {
 
 			jogos.add(j);
 		}
+		ps.close();
+		rs.close();
+		c.close();
 		return jogos;
 	}
 

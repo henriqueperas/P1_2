@@ -20,9 +20,29 @@
 		<h3 class=tarefa>Escolha a data da rodada (23 Janeiro - 13 abril 2022)</h3>
 		<div align="center">
 			<form action="datas" method="post">
-				<input type="date" id=data_rodada name=data_rodada
-					required="required"> <input type="submit" id=pesquisar
-					name=pesquisar value="Pesquisar">
+				<table>
+				<tr>
+					<td>
+						<input type="date" id=data_rodada name=data_rodada required="required">
+						<input type="submit" id=botao name=botao value="Pesquisar">
+						<input type="submit" id=botao name=botao value="Pontuar">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h3 class=tarefa>gols time 1 e gols time 2</h3>	
+						<input class="number" type="number" min="0" step="0" id="gols1" name="gols1" placeholder="#GolsTime1">
+						<input class="number" type="number" min="0" step="0" id="gols2" name="gols2" placeholder="#GolsTime2">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h3 class=tarefa>time 1 e time 2</h3>
+						<input class="number" type="number" min="0" step="0" id="time1" name="time1" placeholder="#Time1">
+						<input class="number" type="number" min="0" step="0" id="time2" name="time2" placeholder="#Time2">
+					</td>
+				</tr>
+				</table>
 			</form>
 		</div>
 		<div align="center">
@@ -54,14 +74,14 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${jogo}" var="j">
+						<c:forEach items="${partida}" var="p">
 							<tr>
-								<td align="center"><c:out value="${j.codigoJogo } "></c:out></td>
-								<td align="center"><c:out value="${j.time1.codigo } "></c:out></td>
-								<td align="center"><c:out value="${j.time2.codigo } "></c:out></td>
-								<td align="center"><c:out value="${j.golsTime1 }  "></c:out></td>
-								<td align="center"><c:out value="${j.golsTime2 }  "></c:out></td>
-								<td align="center"><c:out value="${j.dataJogo }"></c:out></td>
+								<td align="center"><c:out value="${p.codigoJogo } "></c:out></td>
+								<td align="center"><c:out value="${p.time1.codigo_T } "></c:out></td>
+								<td align="center"><c:out value="${p.time2.codigo_T } "></c:out></td>
+								<td align="center"><c:out value="${p.golsTime1 }  "></c:out></td>
+								<td align="center"><c:out value="${p.golsTime2 }  "></c:out></td>
+								<td align="center"><c:out value="${p.dataJogo }"></c:out></td>
 							</tr>
 						</c:forEach>
 					</tbody>

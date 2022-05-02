@@ -12,6 +12,8 @@ import org.springframework.stereotype.Repository;
 
 import br.edu.fateczl.P1_2.model.FinalRebaixamento;
 import br.edu.fateczl.P1_2.model.GrupoPontos;
+import br.edu.fateczl.P1_2.model.Jogo;
+import br.edu.fateczl.P1_2.model.Time;
 
 @Repository
 public class SeparacoesDao implements ISeparacoesDao{
@@ -24,14 +26,14 @@ public class SeparacoesDao implements ISeparacoesDao{
 		List<GrupoPontos> grop = new ArrayList<GrupoPontos>();
 		
 		Connection c = gDao.getConnection();
-		String sql = "SELECT * FROM dbo.fn_grupo('?')";
+		String sql = "SELECT * FROM dbo.fn_grupo(?)";
 		PreparedStatement ps = c.prepareStatement(sql);
 		ps.setString(1, grupo);
 		ResultSet rs = ps.executeQuery();
 		while(rs.next()) {
 			GrupoPontos gp = new GrupoPontos();
-			gp.setNome(rs.getString("nome"));
-			gp.setPartidas(rs.getInt("partidas"));
+			gp.setNome(rs.getString("nome_time"));
+			gp.setPartidas(rs.getInt("num_jogos_disputados"));
 			gp.setVitorias(rs.getInt("vitorias"));
 			gp.setEmpates(rs.getInt("empates"));
 			gp.setDerrotas(rs.getInt("derrotas"));
@@ -59,8 +61,8 @@ public class SeparacoesDao implements ISeparacoesDao{
 		ResultSet rs = ps.executeQuery();
 		while(rs.next()) {
 			GrupoPontos gp = new GrupoPontos();
-			gp.setNome(rs.getString("nome"));
-			gp.setPartidas(rs.getInt("partidas"));
+			gp.setNome(rs.getString("nome_time"));
+			gp.setPartidas(rs.getInt("num_jogos_disputados"));
 			gp.setVitorias(rs.getInt("vitorias"));
 			gp.setEmpates(rs.getInt("empates"));
 			gp.setDerrotas(rs.getInt("derrotas"));
@@ -120,6 +122,7 @@ public class SeparacoesDao implements ISeparacoesDao{
 
 	@Override
 	public void InsereGols(int time1, int gols1, int time2, int gols2) throws SQLException, ClassNotFoundException {
+		
 		Connection c = gDao.getConnection();
 		String sql = "UPDATE jogos SET golsTime1 = ?, golsTime2 = ? WHERE codigoTime1 = ? AND codigoTime2 = ?";
 
@@ -129,7 +132,7 @@ public class SeparacoesDao implements ISeparacoesDao{
 		ps.setInt(3, time1);
 		ps.setInt(4, time2);
 
-		ps.execute();
+		ps.executeUpdate();
 		ps.close();
 		c.close();
 		

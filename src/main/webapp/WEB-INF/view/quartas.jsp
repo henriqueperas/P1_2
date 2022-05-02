@@ -28,6 +28,7 @@
 		</c:if>
 	</div>
 	<br />
+	<br>
 	<div class = "container grid">
 		<c:if test="${not empty grupoA }">
 			<table class=table_home>
@@ -37,9 +38,9 @@
 					</tr>
 				</thead>
 				<tbody>	
-				<c:forEach items="${grupoA}" var="t">
+				<c:forEach items="${grupoA}" var="g">
 					<tr>
-						<td><c:out value="${t.nome }"></c:out></td>
+						<td><c:out value="${g.nome }"></c:out></td>
 					</tr>
 				</c:forEach>
 				</tbody>
@@ -53,16 +54,20 @@
 					</tr>
 				</thead>
 				<tbody>	
-				<c:forEach items="${grupoB}" var="t">
+				<c:forEach items="${grupoB}" var="g">
 					<tr>
-						<td><c:out value="${t.nome }"></c:out></td>
+						<td><c:out value="${g.nome }"></c:out></td>
 					</tr>
 				</c:forEach>
 				</tbody>
 			</table>
 		</c:if>
 		</div>
+		<br>
+		<br>
 		<div class="container grid">
+		<br>
+		<br>
 		<c:if test="${not empty grupoC }">
 			<table class=table_home>
 				<thead>
@@ -71,9 +76,9 @@
 					</tr>
 				</thead>
 				<tbody>	
-				<c:forEach items="${grupoC}" var="t">
+				<c:forEach items="${grupoC}" var="g">
 					<tr>
-						<td><c:out value="${t.nome }"></c:out></td>
+						<td><c:out value="${g.nome }"></c:out></td>
 					</tr>
 				</c:forEach>
 				</tbody>
@@ -87,9 +92,9 @@
 					</tr>
 				</thead>
 				<tbody>	
-				<c:forEach items="${grupoD}" var="t">
+				<c:forEach items="${grupoD}" var="g">
 					<tr>
-						<td><c:out value="${t.nome }"></c:out></td>
+						<td><c:out value="${g.nome }"></c:out></td>
 					</tr>
 				</c:forEach>
 				</tbody>

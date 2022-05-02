@@ -26,6 +26,7 @@
 			<input type="submit" id=botao name=botao value="Listar por grupos">
 			<input type="submit" id=botao name=botao value="Listar todos">
 		</form>
+		
 	</div>
 	<div align="center">
 		<c:if test="${not empty erro}">
@@ -106,7 +107,11 @@
 			</table>
 		</c:if>
 		</div>
+		<br />
+	<br />
 		<div class="container grid">
+		<br />
+	<br />
 		<c:if test="${not empty grupoC }">
 			<table class=table_home>
 				<thead>
@@ -172,6 +177,10 @@
 			</table>
 		</c:if>
 	</div>
+	<br />
+	<br />
+	<br />
+	<br />
 	<div align="center">
 	<c:if test="${not empty todos }">
 			<table class=table_home>
@@ -191,15 +200,15 @@
 				<tbody>	
 				<c:forEach items="${todos}" var="t">
 					<tr>
-						<td align="center"><c:out value="${s.nome }"></c:out></td>
-						<td align="center"><c:out value="${s.partidas }"></c:out></td>
-						<td align="center"><c:out value="${s.vitorias }"></c:out></td>
-						<td align="center"><c:out value="${s.empates }"></c:out></td>
-						<td align="center"><c:out value="${s.derrotas }"></c:out></td>
-						<td align="center"><c:out value="${s.gols_marcados }"></c:out></td>
-						<td align="center"><c:out value="${s.gols_sofridos }"></c:out></td>
-						<td align="center"><c:out value="${s.saldo_gols }"></c:out></td>
-						<td align="center"><c:out value="${s.pontos }"></c:out></td>
+						<td><c:out value="${t.nome }"></c:out></td>
+						<td align="center"><c:out value="${t.partidas }"></c:out></td>
+						<td align="center"><c:out value="${t.vitorias }"></c:out></td>
+						<td align="center"><c:out value="${t.empates }"></c:out></td>
+						<td align="center"><c:out value="${t.derrotas }"></c:out></td>
+						<td align="center"><c:out value="${t.gols_marcados }"></c:out></td>
+						<td align="center"><c:out value="${t.gols_sofridos }"></c:out></td>
+						<td align="center"><c:out value="${t.saldo_gols }"></c:out></td>
+						<td align="center"><c:out value="${t.pontos }"></c:out></td>
 					</tr>
 				</c:forEach>
 				</tbody>
