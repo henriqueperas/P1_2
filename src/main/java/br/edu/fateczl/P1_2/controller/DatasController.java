@@ -31,7 +31,6 @@ public class DatasController {
 	public ModelAndView grupos(ModelMap model, 
 			@RequestParam Map<String, String> allParam) {
 		String data = allParam.get("dataJogo");
-		String botao = allParam.get("botao");
 		String erro = "";
 		String saida = "";
 		List<Jogo> partida = new ArrayList<Jogo>();
