@@ -214,6 +214,7 @@ AS
 			SET @interLoopR = 1
 			SET @interLoop4 = @interLoop4 + 1
 		END
+		SET @saida = 'partidas criadas com sucesso'
 
 --CRIA PARTIDA PARA TODOS OS TIMES EM SEUS GRUPOS
 CREATE PROCEDURE sp_cria_partidas (@saida VARCHAR(40) OUTPUT)
@@ -255,6 +256,7 @@ CREATE PROCEDURE sp_cria_partidas (@saida VARCHAR(40) OUTPUT)
 			SET @interLoop2 = @interLoop2 + 1
 		END
 		EXEC sp_separa_datas @saida
+		SET @saida = 'partidas criadas com sucesso'
 
 DECLARE @out VARCHAR(40)
 DELETE FROM jogos
@@ -468,7 +470,7 @@ SELECT * FROM dbo.fn_rebaixamento()
 
 CREATE FUNCTION fn_quartas_final()
 RETURNS @quartas_final TABLE(
-nomeTime	VARCHAR(30)	NOT NULL
+nomeTime	VARCHAR(30)
 )
 AS
 BEGIN
