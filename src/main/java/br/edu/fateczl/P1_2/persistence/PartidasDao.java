@@ -53,9 +53,9 @@ public class PartidasDao implements IPartidasDao {
 			Time time1 = new Time();
 			Time time2 = new Time();
 			j.setCodigoJogo(rs.getInt("codigoJogo"));
-			time1.setCodigoTime(rs.getInt("codTA"));
+			time1.setCodigo_T(rs.getInt("codTA"));
 			
-			time2.setCodigoTime(rs.getInt("codTB"));
+			time2.setCodigo_T(rs.getInt("codTB"));
 			
 			j.setTime1(time1);
 			j.setTime2(time2);

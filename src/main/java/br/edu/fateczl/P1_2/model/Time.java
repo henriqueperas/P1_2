@@ -1,22 +1,21 @@
 package br.edu.fateczl.P1_2.model;
 
 public class Time {
-	private int codigo;
-	private String nome;
+	private int codigo_T;
+	private String nomeTime;
 	private String cidade;
 	private String estadio;
-	
-	public int getCodigoTime() {
-		return codigo;
+	public int getCodigo_T() {
+		return codigo_T;
 	}
-	public void setCodigoTime(int codTime) {
-		this.codigo = codTime;
+	public void setCodigo_T(int codigo_T) {
+		this.codigo_T = codigo_T;
 	}
 	public String getNomeTime() {
-		return nome;
+		return nomeTime;
 	}
 	public void setNomeTime(String nomeTime) {
-		this.nome = nomeTime;
+		this.nomeTime = nomeTime;
 	}
 	public String getCidade() {
 		return cidade;
@@ -32,7 +31,7 @@ public class Time {
 	}
 	@Override
 	public String toString() {
-		return "Time [codTime=" + codigo + ", nomeTime=" + nome + ", cidade=" + cidade + ", estadio=" + estadio
+		return "Time [codigo_T=" + codigo_T + ", nomeTime=" + nomeTime + ", cidade=" + cidade + ", estadio=" + estadio
 				+ "]";
 	}
 }

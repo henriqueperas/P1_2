@@ -23,18 +23,18 @@ public class GrupoDao implements IGrupoDao {
 
 	@Override
 	public String separaGrupos() throws SQLException, ClassNotFoundException {
-		Connection con = gDao.getConnection();
+		Connection c = gDao.getConnection();
 
-		String sql = "CALL sp_divide_times (?)";
-		CallableStatement cs = con.prepareCall(sql);
+		String sql = "CALL sp_separa_grupos (?)";
+		CallableStatement cs = c.prepareCall(sql);
 		cs.registerOutParameter(1, Types.VARCHAR);
 		cs.execute();
 		
-		String saida = cs.getString(1);
+		String gera = cs.getString(1);
 		
 		cs.close();
-		con.close();
-		return saida;
+		c.close();
+		return gera;
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class GrupoDao implements IGrupoDao {
 		
 		Connection c = gDao.getConnection();
 		StringBuffer sql = new StringBuffer();
-		sql.append("SELECT g.codigoGrupo, t.nomeTime, t.cidade, t.estadio, g.grupo FROM grupos g, times t WHERE g.codigoTimeG = t.codigoTime");
+		sql.append("SELECT * FROM grupos");
 		
 		PreparedStatement ps = c.prepareStatement(sql.toString());
 
@@ -51,12 +51,10 @@ public class GrupoDao implements IGrupoDao {
 		while (rs.next()) {
 			Time t = new Time();
 			Grupo g = new Grupo();
-			
-			t.setNomeTime(rs.getString("nome"));
+			t.setCodigo_T(rs.getInt("codigoTimeG"));
 			g.setTime(t);
+			g.setCodigo(rs.getInt("codigoGrupo"));
 			
-			t.setCidade(rs.getString("cidade"));
-			t.setEstadio(rs.getString("estadio"));
 			g.setGrupo(rs.getString("grupo"));
 			
 			grupos.add(g);
@@ -66,10 +64,10 @@ public class GrupoDao implements IGrupoDao {
 
 	@Override
 	public List<Grupo> listaGrupo(String letra) throws SQLException, ClassNotFoundException {
-		List<Grupo> grupos = new ArrayList<Grupo>();
+		List<Grupo> grupo = new ArrayList<Grupo>();
 		
 		Connection c = gDao.getConnection();
-		String sql = "SELECT g.codigoGrupo, t.nomeTime, t.cidade, t.estadio, g.grupo FROM grupos g, times t WHERE g.codigoTimeG = t.codigoTime AND g.grupo = ? ";
+		String sql = "SELECT * FROM grupos WHERE grupo = ? ";
 		
 		PreparedStatement ps = c.prepareStatement(sql.toString());
 		ps.setString(1, letra);
@@ -86,14 +84,14 @@ public class GrupoDao implements IGrupoDao {
 			t.setEstadio(rs.getString("estadio"));
 			g.setGrupo(rs.getString("grupo"));
 			
-			grupos.add(g);
+			grupo.add(g);
 		}
 		
 		rs.close();
 		ps.close();
 		c.close();
 		
-		return grupos;
+		return grupo;
 	}
 
 }

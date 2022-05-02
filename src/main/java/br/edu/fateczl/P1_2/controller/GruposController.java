@@ -31,23 +31,23 @@ public class GruposController {
 	public ModelAndView grupos(ModelMap model, 
 			@RequestParam Map<String, String> allParam) {
 		String erro = "";
-		String saida = "";
-		List<Grupo> con = new ArrayList<Grupo>();
+		String gera = "";
+		List<Grupo> grupos = new ArrayList<Grupo>();
 		try {
-			saida = grpDao.separaGrupos();
-			con = listaGrupo();
+			gera = grpDao.separaGrupos();
+			grupos = listaGrupo();
 		} catch(ClassNotFoundException | SQLException e) {
 			erro = e.getMessage();
 		} finally {
 			model.addAttribute("erro", erro);
-			model.addAttribute("saida", saida);
-			model.addAttribute("grupos", con);
+			model.addAttribute("saida", gera);
+			model.addAttribute("grupos", grupos);
 		}
 		return new ModelAndView("grupo");
 	}
 	
 	private List<Grupo> listaGrupo() throws ClassNotFoundException, SQLException{
-		List<Grupo> con = grpDao.listaGrupos();
-		return con;
+		List<Grupo> grupos = grpDao.listaGrupos();
+		return grupos;
 	}
 }

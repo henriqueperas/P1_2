@@ -24,11 +24,6 @@
 	</div>
 	<br />
 	<div align="center">
-		<c:if test="${not empty erro}">
-			<h4><c:out value="${erro}"></c:out></h4>
-		</c:if>
-	</div>
-	<div align="center">
 		<c:if test="${not empty grupos}">
 			<table class=table_home>
 				<thead>
@@ -41,9 +36,9 @@
 				<tbody>	
 				<c:forEach items="${grupos}" var="g">
 					<tr>
-						<td align="center"><c:out value="${g.time.codigo}   "></c:out></td>
-						<td align="center"><c:out value="${g.time.nome}  "></c:out></td>
-						<td align="center"><c:out value="${g.grupo}"></c:out></td>
+ 						<td align="center"><c:out value="${g.codigo}   "></c:out></td>
+ 						<td align="center"><c:out value="${g.time.codigo_T}  "></c:out></td>
+ 						<td align="center"><c:out value="${g.grupo}"></c:out></td>
 					</tr>
 				</c:forEach>
 				</tbody>
@@ -53,6 +48,12 @@
 	<div align="center">
 		<c:if test="${not empty saida}">
 			<h4><c:out value="${saida}"></c:out></h4>
+		</c:if>
+	</div>
+	
+	<div align="center">
+		<c:if test="${not empty erro}">
+			<h4><c:out value="${erro}"></c:out></h4>
 		</c:if>
 	</div>
 </body>
